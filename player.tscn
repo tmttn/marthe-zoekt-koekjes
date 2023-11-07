@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt1uh0neyyjm2"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_8nuce"]
+[ext_resource type="Texture2D" uid="uid://b8y1dk0h631s4" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_idle.png" id="1_ge708"]
+[ext_resource type="Texture2D" uid="uid://be00fp7hld1ce" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_walk2.png" id="2_fk4eu"]
+[ext_resource type="Texture2D" uid="uid://bi4i21chudoxb" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_jump.png" id="3_ftv5a"]
+[ext_resource type="Texture2D" uid="uid://cm8yvyxg7ekvf" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_walk1.png" id="3_plse8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jmrt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ge708")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ftv5a")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fk4eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_plse8")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70nsf"]
+size = Vector2(46, 86)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2.14253, 2.14253)
+script = ExtResource("1_8nuce")
+metadata/_edit_group_ = true
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4jmrt")
+animation = &"jumping"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 12)
+shape = SubResource("RectangleShape2D_70nsf")
+
+[node name="Player" type="Node2D" parent="."]
