@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx2ije1ypfcdd"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_3ay4b"]
+[ext_resource type="PackedScene" uid="uid://bt1uh0neyyjm2" path="res://player.tscn" id="3_adqfc"]
+[ext_resource type="PackedScene" uid="uid://iqmx2435xgyk" path="res://cookie_controller.tscn" id="4_atgwe"]
+[ext_resource type="PackedScene" uid="uid://d2f110mi61k5f" path="res://kill_zone.tscn" id="6_cr1k0"]
+
+[node name="World" type="Node2D" groups=["worlds"]]
+script = ExtResource("1_3ay4b")
+
+[node name="Player" parent="." instance=ExtResource("3_adqfc")]
+position = Vector2(38, 62)
+
+[node name="CookieController" parent="." instance=ExtResource("4_atgwe")]
+
+[node name="KillZone" parent="." instance=ExtResource("6_cr1k0")]
+position = Vector2(141, 247)
+scale = Vector2(3377.64, -3.92214)
+
+[connection signal="finalCookieEaten" from="CookieController" to="." method="_on_cookie_controller_final_cookie_eaten"]
+[connection signal="killZoneEntered" from="KillZone" to="." method="_on_kill_zone_kill_zone_entered"]

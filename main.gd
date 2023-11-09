@@ -8,9 +8,9 @@ var gameFinished = false
 
 func _ready():
 	worldScenes = [
-		preload("res://world_1.tscn"),
-		preload("res://world_2.tscn"),
-		preload("res://world_3.tscn")
+		preload("res://worlds/world_1.tscn"),
+		preload("res://worlds/world_2.tscn"),
+		preload("res://worlds/world_3.tscn")
 	]
 
 func _process(_delta):

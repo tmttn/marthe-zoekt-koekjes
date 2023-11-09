@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpxdnkjfvg5ra"]
+
+[ext_resource type="PackedScene" uid="uid://bx2ije1ypfcdd" path="res://world.tscn" id="1_fj5gq"]
+[ext_resource type="PackedScene" uid="uid://c6mejp7oirq0x" path="res://cookie.tscn" id="2_1rggj"]
+[ext_resource type="PackedScene" uid="uid://cs0r48sjib4q8" path="res://maps/map-3.tscn" id="3_a5gp3"]
+
+[node name="World" instance=ExtResource("1_fj5gq")]
+
+[node name="Cookie" parent="CookieController" index="1" instance=ExtResource("2_1rggj")]
+position = Vector2(300, -54)
+
+[node name="Cookie2" parent="CookieController" index="2" instance=ExtResource("2_1rggj")]
+position = Vector2(592, -119)
+
+[node name="Cookie3" parent="CookieController" index="3" instance=ExtResource("2_1rggj")]
+position = Vector2(422, -246)
+
+[node name="map-3" parent="." index="3" instance=ExtResource("3_a5gp3")]
+position = Vector2(10, -791)
