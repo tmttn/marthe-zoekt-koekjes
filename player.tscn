@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt1uh0neyyjm2"]
+[gd_scene load_steps=10 format=3 uid="uid://bt1uh0neyyjm2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8nuce"]
 [ext_resource type="Texture2D" uid="uid://b8y1dk0h631s4" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_idle.png" id="1_ge708"]
 [ext_resource type="Texture2D" uid="uid://be00fp7hld1ce" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_walk2.png" id="2_fk4eu"]
 [ext_resource type="Texture2D" uid="uid://bi4i21chudoxb" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_jump.png" id="3_ftv5a"]
 [ext_resource type="Texture2D" uid="uid://cm8yvyxg7ekvf" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_walk1.png" id="3_plse8"]
+[ext_resource type="AudioStream" uid="uid://dsxyk7umgilib" path="res://Art/yay.ogg" id="6_l1a81"]
+[ext_resource type="AudioStream" uid="uid://w533c4rrhodn" path="res://Art/qubodup-cfork-ccby3-jump.ogg" id="7_oeedf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4jmrt"]
 animations = [{
@@ -36,23 +38,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_70nsf"]
-size = Vector2(46, 86)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x8iq"]
+size = Vector2(17.6946, 28.7068)
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(2.14253, 2.14253)
+scale = Vector2(0.671203, 0.671203)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_8nuce")
 metadata/_edit_group_ = true
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(1.5, 1.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4jmrt")
-animation = &"jumping"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 12)
-shape = SubResource("RectangleShape2D_70nsf")
+animation = &"running"
 
 [node name="Player" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.40021, 11.6684)
+scale = Vector2(2.6905, 3.02414)
+shape = SubResource("RectangleShape2D_8x8iq")
+
+[node name="EatCookieAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l1a81")
+volume_db = 15.0
+
+[node name="JumpAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_oeedf")

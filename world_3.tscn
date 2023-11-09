@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://caynogr6k46mr"]
+
+[ext_resource type="Script" path="res://world_3.gd" id="1_xtq33"]
+[ext_resource type="PackedScene" uid="uid://bt1uh0neyyjm2" path="res://player.tscn" id="2_utfsf"]
+[ext_resource type="PackedScene" uid="uid://cs0r48sjib4q8" path="res://map-3.tscn" id="3_6b3s6"]
+[ext_resource type="PackedScene" uid="uid://iqmx2435xgyk" path="res://cookie_controller.tscn" id="3_g4oln"]
+[ext_resource type="PackedScene" uid="uid://c6mejp7oirq0x" path="res://cookie.tscn" id="3_led0s"]
+
+[node name="World-3" type="Node2D" groups=["worlds"]]
+script = ExtResource("1_xtq33")
+
+[node name="map-3" parent="." instance=ExtResource("3_6b3s6")]
+position = Vector2(-1, -766)
+
+[node name="Player" parent="." instance=ExtResource("2_utfsf")]
+position = Vector2(38, 62)
+
+[node name="CookieController" parent="." instance=ExtResource("3_g4oln")]
+
+[node name="Cookie" parent="CookieController" instance=ExtResource("3_led0s")]
+position = Vector2(280, -35)
+
+[node name="Cookie2" parent="CookieController" instance=ExtResource("3_led0s")]
+position = Vector2(544, -90)
+
+[node name="Cookie3" parent="CookieController" instance=ExtResource("3_led0s")]
+position = Vector2(415, -218)
+
+[connection signal="finalCookieEaten" from="CookieController" to="." method="_on_cookie_controller_final_cookie_eaten"]
+[connection signal="hit" from="CookieController/Cookie" to="Player" method="_on_cookie_hit"]
+[connection signal="hit" from="CookieController/Cookie2" to="Player" method="_on_cookie_hit"]
+[connection signal="hit" from="CookieController/Cookie3" to="Player" method="_on_cookie_hit"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://iqmx2435xgyk"]
+
+[ext_resource type="Script" path="res://cookie_controller.gd" id="1_ppmwx"]
+[ext_resource type="AudioStream" uid="uid://c77stbfg0quog" path="res://Art/162395__zut50__yay.mp3" id="2_jgnby"]
+
+[node name="CookieController" type="Node"]
+script = ExtResource("1_ppmwx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jgnby")

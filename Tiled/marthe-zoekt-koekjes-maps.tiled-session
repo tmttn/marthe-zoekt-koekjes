@@ -1,0 +1,40 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "Kenney abstract platformer.tsx": {
+            "scaleInDock": 1
+        },
+        "map-1.tmx": {
+            "scale": 2.7134375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 159.57618334676954,
+                "y": 147.78302430035703
+            }
+        },
+        "map-2.tmx": {
+            "scale": 1.9381696428571429,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 224.43855810203848,
+                "y": 168.71588160773928
+            }
+        },
+        "map-3.tmx": {
+            "scale": 0.6095833333333334,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 479.01572112098427,
+                "y": 711.9617224880383
+            }
+        }
+    },
+    "last.externalTilesetPath": "D:/projects/gamedev/marthe-zoekt-koekjes/Tiled",
+    "openFiles": [
+    ],
+    "project": "marthe-zoekt-koekjes-maps.tiled-project",
+    "recentFiles": [
+    ]
+}

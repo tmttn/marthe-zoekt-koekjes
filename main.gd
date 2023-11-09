@@ -1,10 +1,27 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
+signal gameOver
+
+var worldScenes
+var worldIndex = -1
+var gameFinished = false
+
 func _ready():
-	pass # Replace with function body.
+	worldScenes = [
+		preload("res://world_1.tscn"),
+		preload("res://world_2.tscn"),
+		preload("res://world_3.tscn")
+	]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	if get_tree().get_nodes_in_group("worlds").is_empty() and not gameFinished:
+		load_next_world()
+	
+func load_next_world():
+	if worldIndex < worldScenes.size() - 1:
+		worldIndex += 1
+		var worldInstance = worldScenes[worldIndex].instantiate()
+		add_child(worldInstance)
+	else:
+		gameOver.emit()
+		gameFinished = true

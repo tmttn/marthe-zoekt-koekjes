@@ -1,0 +1,13 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://cclrol6m8e6vc"]
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_lc6t1"]
+resource_name = "Phaser"
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_i3mf2"]
+resource_name = "Chorus"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectPhaser_lc6t1")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectChorus_i3mf2")
+bus/0/effect/1/enabled = false
