@@ -1,5 +1,7 @@
 extends Node2D
 
+signal worldFinished
+
 var initialPlayerPosition
 
 
@@ -9,7 +11,7 @@ func _ready():
 
 
 func _on_cookie_controller_final_cookie_eaten():
-	queue_free()
+	worldFinished.emit()
 
 
 func _on_kill_zone_kill_zone_entered():

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx2ije1ypfcdd"]
+[gd_scene load_steps=7 format=3 uid="uid://bx2ije1ypfcdd"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_3ay4b"]
+[ext_resource type="Texture2D" uid="uid://dwr7vo3av3egx" path="res://Art/Layers/back.png" id="2_xilsn"]
 [ext_resource type="PackedScene" uid="uid://bt1uh0neyyjm2" path="res://player.tscn" id="3_adqfc"]
+[ext_resource type="Texture2D" uid="uid://ddife7lf5m386" path="res://Art/Layers/middle.png" id="3_lxbrk"]
 [ext_resource type="PackedScene" uid="uid://iqmx2435xgyk" path="res://cookie_controller.tscn" id="4_atgwe"]
 [ext_resource type="PackedScene" uid="uid://d2f110mi61k5f" path="res://kill_zone.tscn" id="6_cr1k0"]
 
@@ -16,6 +18,37 @@ position = Vector2(38, 62)
 [node name="KillZone" parent="." instance=ExtResource("6_cr1k0")]
 position = Vector2(141, 247)
 scale = Vector2(3377.64, -3.92214)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 2.08165e-12)
+motion_mirroring = Vector2(1008, 2.08165e-12)
+
+[node name="Back" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(-307, -450)
+scale = Vector2(3, 3)
+texture = ExtResource("2_xilsn")
+centered = false
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 336, 240)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 2.08165e-12)
+motion_mirroring = Vector2(1152, 2.08165e-12)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(-307, -450)
+scale = Vector2(3, 3)
+texture = ExtResource("3_lxbrk")
+centered = false
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 384, 240)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [connection signal="finalCookieEaten" from="CookieController" to="." method="_on_cookie_controller_final_cookie_eaten"]
 [connection signal="killZoneEntered" from="KillZone" to="." method="_on_kill_zone_kill_zone_entered"]

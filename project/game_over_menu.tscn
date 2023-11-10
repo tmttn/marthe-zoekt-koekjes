@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbbon2mu7vhfm"]
+
+[ext_resource type="Texture2D" uid="uid://di6msbipjjptq" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_cheer1.png" id="1_hburb"]
+[ext_resource type="Script" path="res://game_over_menu.gd" id="1_wi26v"]
+[ext_resource type="Texture2D" uid="uid://de8smbg05e04v" path="res://Art/kenney_platformer-characters/PNG/Female/Poses/female_cheer2.png" id="2_6bliu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxrvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hburb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6bliu")
+}],
+"loop": true,
+"name": &"cheer",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wi26v")
+
+[node name="GameOverMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 570.0
+offset_top = 307.0
+offset_right = 570.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverText" type="Label" parent="GameOverMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.5
+offset_top = -287.0
+offset_right = 263.5
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GameOverMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -48.0
+offset_right = 161.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.999046, 1)
+theme_override_font_sizes/font_size = 64
+text = "Play again"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(583, 531)
+scale = Vector2(2.12, 2.12)
+sprite_frames = SubResource("SpriteFrames_lxrvy")
+animation = &"cheer"
+frame_progress = 0.0358694
+
+[connection signal="pressed" from="GameOverMenu/Button" to="." method="_on_button_pressed"]
