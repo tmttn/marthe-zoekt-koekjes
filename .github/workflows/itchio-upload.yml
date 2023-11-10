@@ -28,8 +28,8 @@ jobs:
 
       - name: Define URL_SUFFIX
         run: |
-          [[ "3" = ${{"4.1.3"}}* ]] && echo "URL_SUFFIX=-stable_linux_headless.64.zip"
-          [[ "4" = ${{"4.1.3"}}* ]] && echo "URL_SUFFIX=-stable_linux.x86_64.zip"
+          [[ "3" = "4.1.3"* ]] && echo "URL_SUFFIX=-stable_linux_headless.64.zip"
+          [[ "4" = "4.1.3"* ]] && echo "URL_SUFFIX=-stable_linux.x86_64.zip"
 
       # exports the game in html mode
       # more info here https://github.com/dulvui/godot-html-export
