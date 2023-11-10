@@ -32,7 +32,7 @@ jobs:
         uses: dulvui/godot-html-export@v0.0.2
         with:
           working-directory: $WORKING_DIRECTORY
-          godot-version: 4.1.3
+          godot-version: 4.1.2
 
       # uploads to itch.io
       # more info here https://github.com/dulvui/itchio-butler-upload
