@@ -7,7 +7,10 @@ const JUMP_VELOCITY = -550.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+func _ready():
+	for cookie in get_tree().get_nodes_in_group("cookies"):
+		cookie.connect("hit", _on_cookie_hit)
+		
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
