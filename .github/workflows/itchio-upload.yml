@@ -24,7 +24,11 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-          apt-get update && apt-get install -y rsync
+          apt-get update && apt-get install -y rsync curl unzip
+          curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          install -m 755 butler /usr/local/bin/butler
+          butler -V
       - name: Web Build
         run: |
           cd project
@@ -40,10 +44,6 @@ jobs:
           path: /build/web
 
       - name: Publish to itch.io
-        uses: manleydev/butler-publish-itchio-action@master
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: web
-          ITCH_GAME: marthes-cookie-hunt
-          ITCH_USER: tmttn
-          PACKAGE: project/${{ env.EXPORT_NAME }}/build/web
+          BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
+        run: butler push "project/$EXPORT_NAME/build/web" "tmttn/marthes-cookie-hunt:web"
