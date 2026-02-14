@@ -8,7 +8,7 @@ on:
 
 env:
   EXPORT_NAME: marthe-zoekt-koekjes
-  GODOT_VERSION: 3.4.2
+  GODOT_VERSION: 4.5.1
 
 jobs:
   export-web:
@@ -22,8 +22,8 @@ jobs:
 
       - name: Setup
         run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           apt-get update && apt-get install -y rsync
       - name: Web Build
         run: |
@@ -32,7 +32,7 @@ jobs:
           rsync -Rr . ./$EXPORT_NAME
           cd $EXPORT_NAME
           mkdir -v -p build/web
-          godot -v --export "HTML5" build/web/index.html
+          godot --headless --export-release "HTML5" build/web/index.html
       - name: Upload Artifacts
         uses: actions/upload-artifact@v6
         with:
