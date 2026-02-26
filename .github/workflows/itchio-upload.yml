@@ -38,7 +38,7 @@ jobs:
           mkdir -v -p build/web
           godot --headless --export-release "HTML5" build/web/index.html
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: web
           path: /build/web
